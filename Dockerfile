@@ -1,15 +1,13 @@
 FROM postgres:10
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
-# Install apt packages
+# install apt packages
 RUN apt-get update \
   && apt-get install -qqy --no-install-recommends \
     build-essential \
     ca-certificates \
     git \
     postgis \
-    postgresql-10-pgrouting \
-    postgresql-10-pgrouting-scripts \
     postgresql-10-postgis-2.4 \
     postgresql-10-postgis-2.4-scripts \
     postgresql-10-postgis-scripts \
@@ -24,10 +22,24 @@ RUN apt-get update \
     virtualenvwrapper \
   && apt-get clean
 
-# create a virtual environment
-WORKDIR /usr/local/src/bash-scripts
-COPY bash-scripts /usr/local/src/bash-scripts
-RUN chmod +x /usr/local/src/bash-scripts/*
-WORKDIR /usr/local/src
-RUN bash-scripts/gtfsdb.build
-RUN bash-scripts/gtfsrdb.build
+# create database superuser
+RUN useradd --shell /bin/bash --user-group --create-home gtfsdb \
+  && echo "alias l='ls -ACF --color=auto'" >> /etc/bash.bashrc \
+  && echo "alias ll='ls -ltrAF --color=auto'" >> /etc/bash.bashrc
+
+WORKDIR /home/gtfsdb/bin
+COPY bin/* /home/gtfsdb/bin/
+RUN chmod +x /home/gtfsdb/bin/*
+RUN chown -R gtfsdb:gtfsdb /home/gtfsdb
+
+# add database creation script
+COPY bin/create-database.sh /docker-entrypoint-initdb.d/
+RUN chmod +x /docker-entrypoint-initdb.d/create-database.sh
+
+# install the GitHub packages
+USER gtfsdb
+WORKDIR /home/gtfsdb
+RUN bin/install-gtfsdb.bash
+
+# switch back to 'root'
+USER root

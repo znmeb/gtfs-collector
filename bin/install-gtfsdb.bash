@@ -9,12 +9,27 @@ mkvirtualenv gtfsdb --python=/usr/bin/python3
 pip install --upgrade zc.buildout
 
 echo "Cloning the repositories if needed"
+mkdir -p ~/Projects; pushd ~/Projects
+
 if [ ! -d gtfsdb ]
 then
   git clone https://github.com/OpenTransitTools/gtfsdb.git
 fi
 
+if [ ! -d gtfsrdb ]
+then
+  git clone https://github.com/znmeb/gtfsrdb.git
+fi
+
+echo "Installing gtfsdb"
 cd gtfsdb
 git pull
-echo "Installing gtfsdb"
 buildout install prod postgresql
+cd ..
+
+echo "Updating gtfsrdb"
+cd gtfsrdb
+git pull
+cd ..
+
+popd
