@@ -1,0 +1,13 @@
+#! /bin/bash
+#
+# Copyright (C) 2016 M. Edward (Ed) Borasky <znmeb@znmeb.net>
+# License: MIT
+
+echo "Cloning the repositories if needed"
+if [ ! -d gtfsrdb ]
+then
+  git clone https://github.com/znmeb/gtfsrdb.git
+fi
+
+cd gtfsrdb
+git pull

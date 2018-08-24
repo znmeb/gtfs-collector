@@ -1,0 +1,20 @@
+#! /bin/bash
+#
+# Copyright (C) 2016 M. Edward (Ed) Borasky <znmeb@znmeb.net>
+# License: MIT
+
+echo "Creating 'gtfsdb' virtual environment"
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+mkvirtualenv gtfsdb --python=/usr/bin/python3
+pip install --upgrade zc.buildout
+
+echo "Cloning the repositories if needed"
+if [ ! -d gtfsdb ]
+then
+  git clone https://github.com/OpenTransitTools/gtfsdb.git
+fi
+
+cd gtfsdb
+git pull
+echo "Installing gtfsdb"
+buildout install prod postgresql
