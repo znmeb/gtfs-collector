@@ -4,6 +4,7 @@ LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 # install apt packages
 RUN apt-get update \
   && apt-get install -qqy --no-install-recommends \
+    bash-completion \
     build-essential \
     ca-certificates \
     git \
