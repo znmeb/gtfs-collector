@@ -3,3 +3,4 @@
 *.pdf binary
 *.html binary
 *.ttf binary
+bin/* text eol=lf
