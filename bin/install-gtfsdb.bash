@@ -6,7 +6,7 @@
 echo "Creating 'gtfsdb' virtual environment"
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 mkvirtualenv gtfsdb --python=/usr/bin/python3
-pip install --upgrade zc.buildout
+pip install --upgrade zc.buildout google sqlalchemy
 
 echo "Cloning the repositories if needed"
 mkdir -p ~/Projects; pushd ~/Projects
