@@ -1,15 +1,6 @@
 FROM postgres:10
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
-# environment variables
-ENV POSTGRES_PASSWORD
-ENV GTFS_FEED
-ENV DATABASE_URL
-ENV TRIP_UPDATE_URL
-ENV SERVICE_ALERT_URL
-ENV VEHICLE_POSITION_URL
-ENV appID
-
 # install apt packages
 RUN apt-get update \
   && apt-get install -qqy --no-install-recommends \
