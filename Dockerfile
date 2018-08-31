@@ -19,7 +19,9 @@ RUN apt-get update \
     python3-dev \
     python-pip \
     python3-pip \
-    time \
+    python3-protobuf \
+    python3-psycopg2 \
+    python3-sqlalchemy \
     vim-nox \
     virtualenvwrapper \
   && apt-get clean
