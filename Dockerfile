@@ -19,6 +19,7 @@ RUN apt-get update \
     python3-dev \
     python-pip \
     python3-pip \
+    time \
     vim-nox \
     virtualenvwrapper \
   && apt-get clean
