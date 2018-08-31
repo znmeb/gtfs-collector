@@ -19,8 +19,11 @@ RUN apt-get update \
     python3-dev \
     python-pip \
     python3-pip \
+    python-protobuf \
     python3-protobuf \
+    python-psycopg2 \
     python3-psycopg2 \
+    python-sqlalchemy \
     python3-sqlalchemy \
     vim-nox \
     virtualenvwrapper \
