@@ -9,4 +9,10 @@ services:
       - 5439:5432
     environment:
       - POSTGRES_PASSWORD
+      - GTFS_FEED
+      - DATABASE_URL
+      - TRIP_UPDATE_URL
+      - SERVICE_ALERT_URL
+      - VEHICLE_POSITION_URL
+      - appID
     command: [ "postgres", "-c", "max_wal_size=2GB" ]
