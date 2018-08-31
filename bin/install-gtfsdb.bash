@@ -6,7 +6,7 @@
 echo "Cloning the repositories"
 mkdir -p ~/Projects; cd ~/Projects
 git clone https://github.com/OpenTransitTools/gtfsdb.git
-git clone https://github.com/znmeb/gtfsrdb.git
+git clone https://github.com/CUTR-at-USF/gtfsrdb.git
 
 echo "Creating 'gtfsdb' virtual environment"
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
