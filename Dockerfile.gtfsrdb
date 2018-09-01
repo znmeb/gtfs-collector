@@ -1,0 +1,22 @@
+FROM python:3-stretch
+LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
+
+# Official PostgreSQL repository
+RUN mkdir -p /etc/apt/sources.list.d/
+COPY pgdg.list.stretch /etc/apt/sources.list.d/pgdg.list
+
+# apt packages
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+  && apt-get update \
+  && apt-get install -qqy --no-install-recommends \
+    git \
+    postgresql-client-10 \
+    vim-nox \
+  && apt-get clean
+
+WORKDIR /usr/local/src
+COPY gtfsrdb-scripts/run-gtfsrdb.bash /usr/local/src/
+RUN chmod +x run-gtfsrdb.bash
+RUN git clone https://github.com/znmeb/gtfsrdb.git
+WORKDIR /usr/local/src/gtfsrdb
+RUN pip install --upgrade sqlalchemy psycopg2 protobuf
