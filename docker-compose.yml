@@ -21,3 +21,16 @@ services:
       - GTFSDB_PASSWORD
       - GTFS_FEED
     command: [ "sleep", "1000d" ]
+  gtfsrdb:
+    build:
+      context: .
+      dockerfile: Dockerfile.gtfsrdb
+    image: gtfsrdb
+    environment:
+      - POSTGRES_PASSWORD
+      - GTFSDB_PASSWORD
+      - TRIP_UPDATE_URL
+      - SERVICE_ALERT_URL
+      - VEHICLE_POSITION_URL
+      - appID
+    command: [ "sleep", "1000d" ]
