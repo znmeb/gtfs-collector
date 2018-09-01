@@ -11,3 +11,14 @@ services:
       - POSTGRES_PASSWORD
       - GTFSDB_PASSWORD
     command: [ "postgres", "-c", "max_wal_size=2GB" ]
+  gtfsdb:
+    build:
+      context: .
+      dockerfile: Dockerfile.gtfsdb
+    image: gtfsdb
+    environment:
+      - POSTGRES_PASSWORD
+      - GTFSDB_PASSWORD
+      - DATABASE_URL
+      - GTFS_FEED
+    command: [ "sleep", "1000d" ]
