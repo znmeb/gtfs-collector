@@ -5,6 +5,8 @@ LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 RUN apt-get update \
   && apt-get install -qqy --no-install-recommends \
     postgis \
+    postgresql-10-pgrouting \
+    postgresql-10-pgrouting-scripts \
     postgresql-10-postgis-2.4 \
     postgresql-10-postgis-2.4-scripts \
     postgresql-10-postgis-scripts \
