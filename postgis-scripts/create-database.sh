@@ -7,7 +7,7 @@
 createuser \
   --no-createdb \
   --no-inherit \
-  --no-login \
+  --login \
   --no-createrole \
   --no-superuser \
   --no-replication \
@@ -17,3 +17,4 @@ psql --username=postgres -c "$command"
 
 # create the database
 createdb --owner=gtfsdb gtfsdb
+psql --username=gtfsdb --dbname=gtfsdb -c "CREATE EXTENSION postgis CASCADE;"
