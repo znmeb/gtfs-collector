@@ -19,6 +19,6 @@ COPY gtfsdb-scripts/run-gtfsdb.bash /usr/local/src/
 RUN chmod +x run-gtfsdb.bash
 RUN git clone https://github.com/OpenTransitTools/gtfsdb.git
 WORKDIR /usr/local/src/gtfsdb
-RUN pip install --upgrade zc.buildout sqlalchemy psycopg2
+RUN pip install --upgrade zc.buildout sqlalchemy psycopg2-binary
 RUN buildout install prod postgresql
 WORKDIR /usr/local/src

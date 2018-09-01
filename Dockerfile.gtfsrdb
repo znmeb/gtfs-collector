@@ -19,5 +19,5 @@ COPY gtfsrdb-scripts/run-gtfsrdb.bash /usr/local/src/
 RUN chmod +x run-gtfsrdb.bash
 RUN git clone https://github.com/znmeb/gtfsrdb.git
 WORKDIR /usr/local/src/gtfsrdb
-RUN pip install --upgrade sqlalchemy psycopg2 protobuf
+RUN pip install --upgrade sqlalchemy psycopg2-binary protobuf
 WORKDIR /usr/local/src
