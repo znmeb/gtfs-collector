@@ -15,7 +15,9 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
   && apt-get clean
 
 WORKDIR /usr/local/src
+COPY gtfsdb-scripts/run-gtfsdb.bash /usr/local/src/
+RUN chmod +x run-gtfsdb.bash
 RUN git clone https://github.com/OpenTransitTools/gtfsdb.git
 WORKDIR /usr/local/src/gtfsdb
-RUN pip install zc.buildout sqlalchemy
+RUN pip install --upgrade zc.buildout sqlalchemy psycopg2
 RUN buildout install prod postgresql
