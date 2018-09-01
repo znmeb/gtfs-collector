@@ -4,7 +4,7 @@
 # License: MIT
 
 cd /usr/local/src/gtfsrdb
-./gtfsrdb.py \
+/usr/bin/python3 ./gtfsrdb.py \
   --trip-updates ${TRIP_UPDATE_URL}?appID=${appID} \
   --alerts ${SERVICE_ALERT_URL}?appID=${appID} \
   --vehicle-positions ${VEHICLE_POSITION_URL}?appID=${appID} \
