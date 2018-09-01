@@ -8,9 +8,7 @@ RUN apt-get update \
     postgresql-10-postgis-2.4 \
     postgresql-10-postgis-2.4-scripts \
     postgresql-10-postgis-scripts \
-    postgresql-10-ogr-fdw \
     postgresql-client-10 \
-    postgresql-server-dev-10 \
   && apt-get clean
 
 # add database creation script
