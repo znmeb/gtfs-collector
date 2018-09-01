@@ -19,6 +19,5 @@ services:
     environment:
       - POSTGRES_PASSWORD
       - GTFSDB_PASSWORD
-      - DATABASE_URL
       - GTFS_FEED
     command: [ "sleep", "1000d" ]
