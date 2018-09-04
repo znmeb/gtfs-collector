@@ -3,7 +3,7 @@
 # Copyright (C) 2016 M. Edward (Ed) Borasky <znmeb@znmeb.net>
 # License: MIT
 
-echo "Creating 'gtfsdb' virtual environment"
+echo "Creating 'gtfsdb' *Conda* virtual environment"
 if [ `conda env list|grep gtfsdb|wc -l` -gt "0" ]
 then 
   echo "Removing old environment"
