@@ -1,0 +1,3 @@
+[submodule "conda-based-gtfsdb/gtfsdb"]
+	path = conda-based-gtfsdb/gtfsdb
+	url = https://github.com/OpenTransitTools/gtfsdb.git
