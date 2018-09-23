@@ -23,4 +23,4 @@ services:
       - SERVICE_ALERT_URL
       - VEHICLE_POSITION_URL
       - appID
-    command: [ "sleep", "1000d" ]
+    command: /usr/local/src/run-gtfsrdb.bash
